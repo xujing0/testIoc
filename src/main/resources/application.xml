@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 配置student -->
+    <!-- scope 对象作用域: 单例 原型 -->
+    <!-- 对象的构建方式:  默认构造器  有参构造器  工厂方法  -->
+    <!-- 依赖的注入方式: setter属性  构造器参数  注解注入 -->
+    <bean id="student" class="com.entity.Student" scope="singleton" >
+        <property name="name" value="小明"></property>
+        <property name="tClass" ref="tClass"></property>
+    </bean>
+    <!-- 配置class -->
+    <bean id="tClass" class="com.entity.TClass" scope="singleton" >
+        <property name="cname" value="3年2班"></property>
+        <property name="teacher" ref="teacher"></property>
+    </bean>
+    <!-- 配置teacher -->
+    <bean id="teacher" class="com.entity.Teacher" scope="singleton" >
+        <property name="tname" value="陈老师"></property>
+    </bean>
+</beans>
